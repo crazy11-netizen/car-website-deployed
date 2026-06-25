@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheels Legacy - Classic & Iconic Cars of the World</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #0a0a0a;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b35, #f7931e, #ffcc02);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b35;
+            text-shadow: 0 0 10px rgba(255, 107, 53, 0.7);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        main {
+            margin-top: 80px;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800"><defs><linearGradient id="road" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23333;stop-opacity:1" /><stop offset="100%" style="stop-color:%23111;stop-opacity:1" /></linearGradient></defs><rect fill="url(%23road)" width="1400" height="800"/><rect fill="%23444" x="0" y="350" width="1400" height="100" opacity="0.8"/><rect fill="%23666" x="0" y="380" width="1400" height="5"/><rect fill="%23666" x="0" y="400" width="1400" height="5"/><circle fill="%23ff6b35" cx="200" cy="200" r="3" opacity="0.8"/><circle fill="%23f7931e" cx="800" cy="150" r="2" opacity="0.6"/><circle fill="%23ffcc02" cx="1200" cy="250" r="4" opacity="0.7"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.7) 100%);
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+            background: linear-gradient(45deg, #fff, #ff6b35, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s infinite;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(255, 107, 53, 0.6);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            border-radius: 2px;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .car-card {
+            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.4s ease;
+            position: relative;
+            border: 1px solid #333;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.3);
+            border-color: #ff6b35;
+        }
+
+        .car-image {
+            height: 250px;
+            background: linear-gradient(45deg, #333, #555);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #ff6b35;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .car-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .car-card:hover .car-image img {
+            transform: scale(1.1);
+        }
+
+        .car-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .car-card:hover .car-image::before {
+            transform: translateX(100%);
+        }
+
+        .car-info {
+            padding: 2rem;
+            color: #fff;
+        }
+
+        .car-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        .car-year {
+            color: #f7931e;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .car-description {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .car-origin {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .indian-section {
+            background: linear-gradient(135deg, #0f3460, #16213e);
+        }
+
+        .global-section {
+            background: linear-gradient(135deg, #2c1810, #1a0f08);
+        }
+
+        .about {
+            background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+            color: #fff;
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        footer {
+            background: #0a0a0a;
+            color: #fff;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ff6b35;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: -200% center; }
+            50% { background-position: 200% center; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cars-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"> 🏛️ Wheels Legacy 🏛️ </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#indian">Indian Classics</a></li>
+                <li><a href="#global">Global Icons</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Wheels Legacy</h1>
+                <p>Journey Through Time • Discover the Most Iconic Automobiles That Shaped History</p>
+                <a href="#indian" class="cta-button">Explore the Collection</a>
+            </div>
+        </section>
+
+        <section id="indian" class="section indian-section">
+            <h2>🇮🇳 Indian Classic & Iconic Cars</h2>
+            <div class="cars-grid">
+
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Morris_Oxford_Series_II_front.jpg/960px-Morris_Oxford_Series_II_front.jpg" alt="Hindustan Ambassador">
+                    </div>
+                    <div class="car-info">
+                        <h3>Hindustan Landmaster</h3>
+                        <div class="car-year">1954 - 1956</div>
+                        <p class="car-description">Launched in 1954, the Hindustan Landmaster was an Indian-built version of the Morris Oxford Series II. It featured a 1.5L petrol engine and was known for its durability, rounded design, and chrome-heavy styling. As a predecessor to the iconic Ambassador, it marked India’s early journey into domestically assembled passenger cars.</p>
+                        <span class="car-origin">Hindustan Motors</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Morris_Oxford_Series_III.jpg/960px-Morris_Oxford_Series_III.jpg" alt="Hindustan Ambassador">
+                    </div>
+                    <div class="car-info">
+                        <h3>Hindustan Ambassador</h3>
+                        <div class="car-year">1958 - 2014</div>
+                        <p class="car-description">A Licensed Version of Morris Oxford III The King of Indian Roads, the Ambassador was India's most iconic car, serving as the official government vehicle for decades.</p>
+                        <span class="car-origin">Hindustan Motors</span>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Fiat_1100D%2C_Schaffen_Diest_Fly-Drive_2013.JPG/620px-Fiat_1100D%2C_Schaffen_Diest_Fly-Drive_2013.JPG" alt="Premier Padmini">
+                    </div>
+                    <div class="car-info">
+                        <h3>Premier Padmini / Premier President</h3>
+                        <div class="car-year">1964 - 2000</div>
+                        <p class="car-description">A Licensed Version of the Fiat 1100 Delight. Mumbai's beloved taxi, the Padmini became synonymous with Indian city transport and Indian films.</p>
+                        <span class="car-origin">Premier Automobiles</span>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/MHV_Maruti_Suzuki_800_01.jpg/620px-MHV_Maruti_Suzuki_800_01.jpg" alt="Maruti 800">
+                    </div>
+                    <div class="car-info">
+                        <h3>Maruti 800</h3>
+                        <div class="car-year">1983 - 2014</div>
+                        <p class="car-description">The People's Car. India's first modern small car that put the nation on wheels and democratized car ownership in India.</p>
+                        <span class="car-origin">Maruti Suzuki</span>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Tata_sier.jpg/500px-Tata_sier.jpg" alt="Tata Sierra">
+                    </div>
+                    <div class="car-info">
+                        <h3>Tata Sierra</h3>
+                        <div class="car-year">1991 - 2000</div>
+                        <p class="car-description">India's first SUV. A bold design statement that introduced Indians to sport utility vehicles with its distinctive three-door configuration.</p>
+                        <span class="car-origin">Tata Motors</span>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Vauxhall_Ventora_%2813902799798%29.jpg/500px-Vauxhall_Ventora_%2813902799798%29.jpg" alt="Hindustan Contessa">
+                    </div>
+                    <div class="car-info">
+                        <h3>Hindustan Contessa</h3>
+                        <div class="car-year">1984 - 2002</div>
+                        <p class="car-description">The Muscle Car of India. Based on Vauxhall Victor, it was India's answer to luxury sedans with its imposing presence.</p>
+                        <span class="car-origin">Hindustan Motors</span>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Willyjeep01.jpg/960px-Willyjeep01.jpg" alt="Mahindra Jeep">
+                    </div>
+                    <div class="car-info">
+                        <h3>Mahindra Jeep</h3>
+                        <div class="car-year">1947 - Present</div>
+                        <p class="car-description">The Original Indian 4x4 based on Willy's CJ 3A. Built under license from Willys, it became the backbone of rural India and off-road adventures.</p>
+                        <span class="car-origin">Mahindra & Mahindra</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Standard_Herald.jpg/500px-Standard_Herald.jpg" alt="Herald">
+                    </div>
+                    <div class="car-info">
+                        <h3>Standard Herald</h3>
+                        <div class="car-year">1961 - 1974</div>
+                        <p class="car-description">The Standard Herald, introduced in India in 1961 by Standard Motors, was based on the UK’s Triumph Herald. It featured a rear-wheel-drive layout, a turning radius-friendly chassis, and later a 4-door version unique to India. Known for its distinctive bonnet and classic British styling, it became a niche icon in Indian motoring history.</p>
+                        <span class="car-origin">Standard Automobiles</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Tata_Sumo_EX_2.0_TDi_4x4_2001_%2815260028476%29.jpg/960px-Tata_Sumo_EX_2.0_TDi_4x4_2001_%2815260028476%29.jpg" alt="Sumo">
+                    </div>
+                    <div class="car-info">
+                        <h3>TATA Sumo</h3>
+                        <div class="car-year">1994 - 2019</div>
+                        <p class="car-description">Launched in 1994, the Tata Sumo was a rugged, rear-wheel-drive SUV designed for Indian roads and utility use. With a boxy design and spacious seating for 7–10 passengers, it gained popularity among families, government fleets, and rural transport. Known for durability and affordability, it became a Tata Motors workhorse icon.</p>
+                        <span class="car-origin">TATA Motors</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="global" class="section global-section">
+            <h2>🌍 Global Classic & Iconic Cars</h2>
+            <div class="cars-grid">
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/1962_Ferrari_250_GTE.jpg/960px-1962_Ferrari_250_GTE.jpg" alt="Ferrari"></div>
+                    <div class="car-info">
+                        <h3>Ferrari 250 GTO</h3>
+                        <div class="car-year">1962 - 1964</div>
+                        <p class="car-description">The Holy Grail of classic cars. Only 36 were made, combining racing pedigree with stunning beauty. Now worth tens of millions.</p>
+                        <span class="car-origin">Origin: Italy</span>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Porsche_901%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS1277%29.jpg/500px-Porsche_901%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS1277%29.jpg" alt="Porsche"></div>
+                    <div class="car-info">
+                        <h3>Porsche 911</h3>
+                        <div class="car-year">1963 - Present</div>
+                        <p class="car-description">The timeless sports car. Its distinctive silhouette has remained virtually unchanged, defining the perfect sports car formula.</p>
+                        <span class="car-origin">Origin: Germany</span>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/ATMS_52_-_Volkswagen.jpg/500px-ATMS_52_-_Volkswagen.jpg" alt="VW"></div>
+                    <div class="car-info">
+                        <h3>Volkswagen Type 1 / Volkswagen Beetle</h3>
+                        <div class="car-year">1938 - 2003</div>
+                        <p class="car-description">The People's Car. Originally Hitler's vision, it became a symbol of peace, love, and counterculture in the 1960s.</p>
+                        <span class="car-origin">Origin: Germany</span>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/1963_Jaguar_XK-E_Roadster.jpg/500px-1963_Jaguar_XK-E_Roadster.jpg" alt="Jaguar"></div>
+                    <div class="car-info">
+                        <h3>Jaguar E-Type</h3>
+                        <div class="car-year">1961 - 1975</div>
+                        <p class="car-description">The most beautiful car ever made. Enzo Ferrari called it "the most beautiful car ever made" - combining performance with elegance.</p>
+                        <span class="car-origin">Origin: United Kingdom</span>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/1976_Mini_1000_Front.jpg/960px-1976_Mini_1000_Front.jpg" alt="mini"></div>
+                    <div class="car-info">
+                        <h3>Mini Cooper</h3>
+                        <div class="car-year">1959 - 2000</div>
+                        <p class="car-description">Small car, big personality. Revolutionized small car design and became a cultural icon, from Monte Carlo rallies to movies.</p>
+                        <span class="car-origin">Origin: United Kingdom</span>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Morris_Minor_MM_%28low-lights%29_1950_moving.JPG/960px-Morris_Minor_MM_%28low-lights%29_1950_moving.JPG" alt="minor"></div>
+                    <div class="car-info">
+                        <h3>Morris Minor</h3>
+                        <div class="car-year">1948 - 1971</div>
+                        <p class="car-description">The Morris Minor is a classic British compact car, produced from 1948 to 1971. Known for its charming curves, reliability, and innovative design, it became an icon of affordable motoring and British post-war engineering, beloved by enthusiasts worldwide.</p>
+                        <span class="car-origin">Origin: United Kingdom</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/1925_Ford_Model_T_touring.jpg/960px-1925_Ford_Model_T_touring.jpg" alt="ford"></div>
+                    <div class="car-info">
+                        <h3>Ford Model T</h3>
+                        <div class="car-year">1908 - 1927</div>
+                        <p class="car-description">The Ford Model T, launched in 1908, revolutionized transportation with its affordability and its the first mass produced car. Known as the first car for the common man, it featured a simple, rugged design and changed the automotive industry forever.</p>
+                        <span class="car-origin">Origin: United States</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/1987-1991_Mercedes-Benz_300_SEL_%28V_126%29_sedan_%282010-04-03%29_02.jpg/960px-1987-1991_Mercedes-Benz_300_SEL_%28V_126%29_sedan_%282010-04-03%29_02.jpg" alt="benz"></div>
+                    <div class="car-info">
+                        <h3>Mercedes Benz 126 - S Class</h3>
+                        <div class="car-year">1972 – 1980</div>
+                        <p class="car-description">The Mercedes-Benz W116, produced from 1972 to 1980, was the first official S-Class. It featured advanced safety innovations, luxurious interiors, and powerful engines, setting a new benchmark in executive sedans with unmatched German engineering, comfort, and prestige.</p>
+                        <span class="car-origin">Origin: Germany</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/1982_Mercedes-Benz_230E_Automatic.jpg/330px-1982_Mercedes-Benz_230E_Automatic.jpg" alt="ford"></div>
+                    <div class="car-info">
+                        <h3>Mercedes Benz W123 - Executive Class</h3>
+                        <div class="car-year">1976 – 1986</div>
+                        <p class="car-description">The Mercedes-Benz W123 is a legendary midsize luxury sedan known for its timeless design, unmatched durability, and smooth ride. Produced from 1976 to 1986, it's beloved for its reliability, making it a global icon of automotive engineering excellence.</p>
+                        <span class="car-origin">Origin: Germany</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Armenian_cortege_in_MSU_2011.jpg/500px-Armenian_cortege_in_MSU_2011.jpg" alt="S600"></div>
+                    <div class="car-info">
+                        <h3>Mercedes Benz S600 Pullman Guard</h3>
+                        <div class="car-year">2007 – 2013</div>
+                        <p class="car-description">A luxury armored limousine built for heads of state, the S600 Pullman Guard offers maximum protection with VR9-level armor. Powered by a V12 engine, it combines Mercedes' signature comfort and technology with reinforced security, including bulletproof glass and bomb resistance, making it a fortress on wheels.</p>
+                        <span class="car-origin">Origin: Germany</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Rolls_Royce_Silver_Cloud_I_1956_licence_plate_1963_Castle_Hedingham_2008.JPG/960px-Rolls_Royce_Silver_Cloud_I_1956_licence_plate_1963_Castle_Hedingham_2008.JPG" alt="S600"></div>
+                    <div class="car-info">
+                        <h3>Rolls Royce Silver Cloud </h3>
+                        <div class="car-year">1955 – 1958</div>
+                        <p class="car-description">Introduced in 1955, the Silver Cloud I represents Rolls-Royce elegance with its smooth inline-six engine, graceful lines, and handcrafted interiors. Built for royalty and elites, it featured a body-on-frame design allowing custom coachbuilding. The car balanced performance with old-world luxury, setting the tone for post-war British automotive prestige.</p>
+                        <span class="car-origin">Origin: United Kingdom</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Rolls_Royce_Phantom_IV%2C_chassis_4AF2.jpeg/500px-Rolls_Royce_Phantom_IV%2C_chassis_4AF2.jpeg" alt="S600"></div>
+                    <div class="car-info">
+                        <h3>Rolls Royce Phantom IV </h3>
+                        <div class="car-year">1955 – 1958</div>
+                        <p class="car-description">The rarest Rolls-Royce, the Phantom IV was produced exclusively for royalty and heads of state between 1950–1956. Only 18 units were made. It featured a massive straight-eight engine and custom bodywork, offering unparalleled luxury, prestige, and exclusivity. Its presence symbolized power, discretion, and supreme craftsmanship.</p>
+                        <span class="car-origin">Origin: United Kingdom</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section about">
+            <h2>About Wheels Legacy</h2>
+            <div class="about-content">
+                <p>Welcome to Wheels Legacy, where automotive history comes alive....</p>
+                
+                <p>Our mission is to preserve the legacy of these mechanical marvels, honoring both the engineering brilliance and cultural impact of automobiles that have become more than mere transportation - they are rolling pieces of history.</p>
+                
+                <p>Join us on this journey through time, where every curve, every chrome detail, and every engine note tells the story of human ingenuity and passion for the perfect machine.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#indian">Indian Classics</a>
+                <a href="#global">Global Icons</a>
+                <a href="#about">About</a>
+                <a href="#">Newsletter</a>
+                <a href="#">Contact</a>
+            </div>
+            <p>&copy; 🏛️ 2024 Wheels Legacy. All rights reserved©. | Preserving Automotive History 🏛️</p>
+            <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
+                "In every classic car lies the soul of an era, waiting to be rediscovered..."
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(44, 44, 44, 0.95))';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1a1a1a, #2c2c2c)';
+            }
+        });
+
+        // Car cards animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animation to car cards
+        document.querySelectorAll('.car-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add some interactive sparkle effect on hover
+        document.querySelectorAll('.car-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 20px 50px rgba(255, 107, 53, 0.3), 0 0 30px rgba(255, 204, 2, 0.2)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
+            });
+        });
+    </script>
+</body>
+</html>
