@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚒️⚒️🚗  Iconic Soviet Automobiles  🚗⚒️⚒️ </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #0a0a0a;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff3535, #8af71e, #1b02ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 53, 53, 0.5);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #46ff35;
+            text-shadow: 0 0 10px rgba(83, 255, 53, 0.7);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(45deg, #49ff35, #1ef730);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        main {
+            margin-top: 80px;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800"><defs><linearGradient id="road" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23333;stop-opacity:1" /><stop offset="100%" style="stop-color:%23111;stop-opacity:1" /></linearGradient></defs><rect fill="url(%23road)" width="1400" height="800"/><rect fill="%23444" x="0" y="350" width="1400" height="100" opacity="0.8"/><rect fill="%23666" x="0" y="380" width="1400" height="5"/><rect fill="%23666" x="0" y="400" width="1400" height="5"/><circle fill="%23ff6b35" cx="200" cy="200" r="3" opacity="0.8"/><circle fill="%23f7931e" cx="800" cy="150" r="2" opacity="0.6"/><circle fill="%23ffcc02" cx="1200" cy="250" r="4" opacity="0.7"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.7) 100%);
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+            background: linear-gradient(45deg, #ffffff, #ff6b35, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s infinite;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff3535, #f7931e);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(255, 107, 53, 0.6);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff3535, #f71e1e);
+            border-radius: 2px;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .car-card {
+            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.4s ease;
+            position: relative;
+            border: 1px solid #333;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.3);
+            border-color: #ff3535;
+        }
+
+        .car-image {
+            height: 250px;
+            background: linear-gradient(45deg, #333, #555);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #ff3535;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .car-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .car-card:hover .car-image img {
+            transform: scale(1.1);
+        }
+
+        .car-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .car-card:hover .car-image::before {
+            transform: translateX(100%);
+        }
+
+        .car-info {
+            padding: 2rem;
+            color: #fff;
+        }
+
+        .car-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ff3535;
+            font-weight: bold;
+        }
+
+        .car-year {
+            color: #1e54f7;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .car-description {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .car-origin {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .global-section {
+            background: linear-gradient(135deg, #2c1810, #1a0f08);
+        }
+
+        .about {
+            background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+            color: #fff;
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        footer {
+            background: #0a0a0a;
+            color: #fff;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ff3535;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: -200% center; }
+            50% { background-position: 200% center; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cars-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"> 🏛️ Wheels Legacy 🏛️ </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#global">Socialist Auto Icons</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Socialist Auto Legacy</h1>
+                <p>Journey Through Time • Discover the Most Iconic Socialist Automobiles That Shaped History</p>
+                <a href="#indian" class="cta-button">Explore the Collection</a>
+            </div>
+        </section>
+
+     
+        <section id="global" class="section global-section">
+            <h2> ⚒️ Socialist Auto Icons ⚒️ </h2>
+            <div class="cars-grid">
+                <div class="car-card">
+                    <div class="car-image"><img src="data:image/jpeg;base64,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" alt="Ferrari"></div>
+                    <div class="car-info">
+                        <h3>Barkas B1000</h3>
+                        <div class="car-year">1961 - 1991</div>
+                        <p class="car-description">An East German van produced from 1961 to 1991, is iconic for its versatility and role in everyday life. Used as ambulances, police vans, and family transport, it symbolized socialist practicality. Its durability, unique design, and nostalgic charm make it a beloved classic of Eastern Europe.</p>
+                        <span class="car-origin">Origin: East Germany</span>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/TAZ-1500-BUS_Doln%C3%AD-Kaln%C3%A1-P1040398.jpg/960px-TAZ-1500-BUS_Doln%C3%AD-Kaln%C3%A1-P1040398.jpg" alt=""></div>
+                    <div class="car-info">
+                        <h3>Skoda 1203</h3>
+                        <div class="car-year">1968-2017</div>
+                        <p class="car-description">Produced from 1968, became the workhorse of Czechoslovakia. Widely used as ambulances, delivery vans, and minibuses, it symbolized reliability in socialist transport. Despite modest performance, its spacious interior and adaptability made it indispensable. Today, it holds nostalgic value as a cultural icon of Eastern European motoring history.</p>
+                        <span class="car-origin">Origin: Czechoslovakia</span>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/1980_-_VAZ_2101.JPG" alt=""></div>
+                    <div class="car-info">
+                        <h3>Lada 2101</h3>
+                        <div class="car-year">1970–1988</div>
+                        <p class="car-description">Introduced in 1970 as the Soviet version of the Fiat 124, became a symbol of affordable, rugged motoring across the USSR and Eastern Europe. Known as the "Zhiguli," it was simple, durable, and easy to repair. Its widespread use cemented it as a cultural and automotive icon.</p>
+                        <span class="car-origin">Origin: Soviet Union</span>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/1988_Yugo_GV_in_Blue%2C_front_left.jpg/960px-1988_Yugo_GV_in_Blue%2C_front_left.jpg" alt=""></div>
+                    <div class="car-info">
+                        <h3>Zastava Yugo</h3>
+                        <div class="car-year">1980 – 2008</div>
+                        <p class="car-description">Produced in Yugoslavia from the 1980s, gained fame as one of the most affordable cars exported to the U.S. Marketed as a budget-friendly compact, it offered simplicity but became infamous for poor quality and reliability. Despite ridicule, it remains iconic as a cultural symbol of cheap motoring history.</p>
+                        <span class="car-origin">Origin: Yugoslavia</span>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Tatra_603.jpg/960px-Tatra_603.jpg" alt=""></div>
+                    <div class="car-info">
+                        <h3>Tatra 603</h3>
+                        <div class="car-year">1956 – 1975 </div>
+                        <p class="car-description">Was a striking Czechoslovak luxury sedan, instantly recognizable for its aerodynamic, finned design and rear-mounted air-cooled V8 engine. Reserved mainly for government officials, it symbolized prestige behind the Iron Curtain. Its futuristic styling, innovative engineering, and limited availability cement its legendary status among Eastern Bloc classics.</p>
+                        <span class="car-origin">Origin: Czechoslovakia</span>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/1988_VEB_Sachenring_Trabant_P601S_Beige_%281_bearb_Sp%29.jpg/960px-1988_VEB_Sachenring_Trabant_P601S_Beige_%281_bearb_Sp%29.jpg" alt=""></div>
+                    <div class="car-info">
+                        <h3>Trabant 601</h3>
+                        <div class="car-year">1964 - 1990</div>
+                        <p class="car-description">Was East Germany’s most iconic car, known for its simple design, duroplast plastic body, and smoky two-stroke engine. Affordable and mass-produced, it became a symbol of everyday life in the Eastern Bloc. Despite modest performance, its cultural legacy endures as a quirky emblem of Cold War motoring.</p>
+                        <span class="car-origin">Origin: East Germany</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/MGON_1_ZiS-110_%28cropped%29.jpg/960px-MGON_1_ZiS-110_%28cropped%29.jpg" alt=""></div>
+                    <div class="car-info">
+                        <h3>ZIS 110</h3>
+                        <div class="car-year">1946-1958</div>
+                        <p class="car-description">Was a luxury limousine modeled after American Packards, symbolizing Soviet prestige with an 8-cylinder engine and lavish interiors, used mainly by top officials; its owners included Joseph Stalin, Georgy Malenkov, Nikita Khrushchev, Politburo elites, and gifted leaders like Mao Zedong and Kim Il-Sung.</p>
+                        <span class="car-origin">Origin: Soviet Union</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Museum_of_automotive_technology_UMMC_%2816.03.2023%29_-_31.jpg/960px-Museum_of_automotive_technology_UMMC_%2816.03.2023%29_-_31.jpg" alt=""></div>
+                    <div class="car-info">
+                        <h3>ZIL 111</h3>
+                        <div class="car-year">1958 - 1967</div>
+                        <p class="car-description">Was a hand-built Soviet luxury limousine, blending American-inspired design with powerful V8 performance, used for parades and transporting top leaders. Its owners included Nikita Khrushchev, Leonid Brezhnev, and high-ranking Politburo officials, while select units were presented as diplomatic gifts to communist allies.</p>
+                        <span class="car-origin">Origin: Soviet Union</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ZIL-114-limo.jpg/960px-ZIL-114-limo.jpg" alt=""></div>
+                    <div class="car-info">
+                        <h3>ZIL 114</h3>
+                        <div class="car-year">1967 - 1978</div>
+                        <p class="car-description">Was a Soviet state limousine, larger and more advanced than its predecessor, featuring a 7.0L V8 engine, automatic transmission, and luxury fittings. It symbolized Soviet authority and exclusivity, with ownership limited to Leonid Brezhnev, Alexei Kosygin, and other top Politburo leaders, serving as the USSR’s flagship limousine.</p>
+                        <span class="car-origin">Origin: Soviet Union</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/ZIL_41047_%281990%29_1X7A8072.jpg/960px-ZIL_41047_%281990%29_1X7A8072.jpg" alt=""></div>
+                    <div class="car-info">
+                        <h3>ZIL 41047</h3>
+                        <div class="car-year">1985 – 2010</div>
+                        <p class="car-description">Was the final hand-built Soviet luxury limousine, powered by a 7.7L V8 and designed in a stately, boxy style. It embodied Cold War prestige and exclusivity, reserved strictly for the Soviet elite. Owners included Mikhail Gorbachev, Boris Yeltsin, and later Russian state leaders, cementing its legacy of political power.</p>
+                        <span class="car-origin">Origin: Soviet Union</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/GAZ-13_%22Chaika%22_%281959-1981%29_-_panoramio_%28cropped%29.jpg/960px-GAZ-13_%22Chaika%22_%281959-1981%29_-_panoramio_%28cropped%29.jpg" alt=""></div>
+                    <div class="car-info">
+                        <h3>GAZ Chaika G13</h3>
+                        <div class="car-year">1959 – 1981</div>
+                        <p class="car-description">Was a Soviet luxury car powered by a 5.5L V8, styled with American-inspired fins and chrome detailing. It symbolized prestige and was used for high-ranking officials, diplomats, and special services. Owners included Nikita Khrushchev and Leonid Brezhnev, marking it as an emblem of Soviet authority.</p>
+                        <span class="car-origin">Origin: Soviet Union</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Independence_Day_parade_in_Kiev%2C_Ukraine_in_2008.jpg/500px-Independence_Day_parade_in_Kiev%2C_Ukraine_in_2008.jpg" alt=""></div>
+                    <div class="car-info">
+                        <h3>GAZ Chaika G14</h3>
+                        <div class="car-year">1977 – 1988</div>
+                        <p class="car-description">Was the successor to the G13, featuring more squared, modern styling and powered by a 5.5L V8 with automatic transmission. Built in limited numbers, it was reserved for top officials and ceremonial use. Owners included Leonid Brezhnev and Mikhail Gorbachev, reinforcing its elite Soviet prestige.</p>
+                        <span class="car-origin">Origin: Soviet Union</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/GAZ-M-20_%22Pobeda%22_on_CMSh_in_Lahti%2C_Finland.jpg/960px-GAZ-M-20_%22Pobeda%22_on_CMSh_in_Lahti%2C_Finland.jpg" alt=""></div>
+                    <div class="car-info">
+                        <h3>GAZ M20 Pobeda</h3>
+                        <div class="car-year">1946 – 1958</div>
+                        <p class="car-description">Was one of the first Soviet cars with a streamlined, modern design. Powered by a 2.1L inline-four, it symbolized post-war recovery and progress. Affordable yet elegant, it was widely used by government officials and the public. Owners included Georgy Malenkov and Nikita Khrushchev.</p>
+                        <span class="car-origin">Origin: Soviet Union</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/GAZ-21_%283rd_generation%29_%22Volga%22_in_Beroun_%28as_DOD_probotrans_expon%C3%A1t%29.jpg/960px-GAZ-21_%283rd_generation%29_%22Volga%22_in_Beroun_%28as_DOD_probotrans_expon%C3%A1t%29.jpg" alt=""></div>
+                    <div class="car-info">
+                        <h3>GAZ Volga</h3>
+                        <div class="car-year">1956 – 2010</div>
+                        <p class="car-description">Was the USSR’s most iconic executive car, blending durability with understated luxury. Early models like the GAZ-21 became symbols of prestige for officials, police, and taxi services. Owners included Nikita Khrushchev, KGB services, and high-ranking Soviet bureaucrats, making it a versatile emblem of Soviet motoring.</p>
+                        <span class="car-origin">Origin: Soviet Union</span>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Gaz-uaz.jpg/500px-Gaz-uaz.jpg" alt=""></div>
+                    <div class="car-info">
+                        <h3>GAZ 69</h3>
+                        <div class="car-year">1953 – 1972</div>
+                        <p class="car-description">Was a rugged Soviet 4x4 utility vehicle, powered by a 2.1L inline-four, designed for military, police, and rural use. Known for its durability and off-road capability, it became the USSR’s standard light utility vehicle. Owners included Soviet Army officers, border guards, and government agencies.</p>
+                        <span class="car-origin">Origin: Soviet Union</span>
+                    </div>
+                </div>
+           
+            </div>
+        </section>
+
+        <section id="about" class="section about">
+            <h2>About Wheels Legacy</h2>
+            <div class="about-content">
+                <p>Welcome to Wheels Legacy, where automotive history comes alive....</p>
+                
+                <p>Our mission is to preserve the legacy of these mechanical marvels, honoring both the engineering brilliance and cultural impact of automobiles that have become more than mere transportation - they are rolling pieces of history.</p>
+                
+                <p>Join us on this journey through time, where every curve, every chrome detail, and every engine note tells the story of human ingenuity and passion for the perfect machine.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#global">Socialist Mobility Icons</a>
+                <a href="#about">About</a>
+                <a href="#">Newsletter</a>
+                <a href="#">Contact</a>
+            </div>
+            <p>&copy; 🏛️2024 Socialist Iconic Wheels. All rights reserved©. | Preserving Automotive History 🏛️</p>
+            <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
+                "In every classic car lies the soul of an era, waiting to be rediscovered..."
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(44, 44, 44, 0.95))';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1a1a1a, #2c2c2c)';
+            }
+        });
+
+        // Car cards animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animation to car cards
+        document.querySelectorAll('.car-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add some interactive sparkle effect on hover
+        document.querySelectorAll('.car-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 20px 50px rgba(255, 107, 53, 0.3), 0 0 30px rgba(255, 204, 2, 0.2)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
+            });
+        });
+    </script>
+</body>
+</html>
